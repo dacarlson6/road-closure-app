@@ -4,8 +4,8 @@ var dataStats = {};
 
 function createMap(){
     map = L.map('mapid', {
-        center: [44.5, -85.0],
-        zoom: 6
+        center: [43.1, -89.9],
+        zoom: 13
     });
 
     L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}', {
