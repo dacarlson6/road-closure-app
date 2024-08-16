@@ -1,2 +1,65 @@
-/*Add CSS styles here*/
-#mapid { height: 180px; }
+
+#mapid, #map {
+    height: 100%;
+    width: 100%;
+    display: inline-block;
+}
+    
+.sequence-control-container {  
+    width: 300px;  
+    height: auto;  
+    background-color: rgba(255,255,255,0.8);  
+    padding: 5px;  
+    text-align: center;  
+    border: solid gray 1px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.range-slider {
+    width: 80%;
+    margin-top: 10px;
+}
+
+.step {
+    flex-grow: 1;
+    padding: 5px 10px;
+    font-size: 12px;
+    text-align: center;
+    background-color: #f4f4f4;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    cursor: pointer; 
+}  
+
+.step:hover {
+    background-color: #e2e2e2;
+}
+
+/*adjusting popup content margins in style.css*/
+.leaflet-popup-content p {
+    margin: 0.2em 0;
+}
+
+.legend-control-container {
+    padding: 6px 8px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    width: 200px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #555;
+}
+
+.legend-content h4 {
+    margin: 0 0 5px;
+    line-height: 1.25;
+}
+
+#temporal-legend {
+    font-size: 16px;
+}
+
+
