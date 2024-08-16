@@ -16,7 +16,12 @@ function createMap(){
     getData(map);
 };
 
-function calcStats(data){
+
+
+
+
+
+/* function calcStats(data){
     //create empty array to store all data values
     var allValues = [];
     for(var feature of data.features){
@@ -36,9 +41,9 @@ function calcStats(data){
     var sum = allValues.reduce(function(a, b){return a+b;});
     dataStats.mean = sum/ allValues.length;
     //meanValue = allValues.reduce((sum, current) => sum + current, 0) / allValues.length;
-}
+} */
 
-function calculateMinValue(data){
+/* function calculateMinValue(data){
     //create empty array to store all data values
     var allValues = [];
     //loop through each city
@@ -54,9 +59,9 @@ function calculateMinValue(data){
     //get min value of our array
     minValue = Math.min(...allValues);
     return minValue;
-}
+} */
 
-//calculate the radius of each proportional symbol
+/* //calculate the radius of each proportional symbol
 function calcPropRadius(attValue) {
     //constant factor adjusts symbol sizes evenly
     var minRadius = 5;
@@ -64,8 +69,11 @@ function calcPropRadius(attValue) {
     var radius = 1.0083 * Math.pow(attValue/minValue,0.5715) * minRadius;
     return radius;
 }
+ */
 
-//function to convert markers to circle markers
+
+
+/* //function to convert markers to circle markers
 function pointToLayer(feature, latlng, attributes) {
     //determine which attribute to visualize with proportional symbols
     var attribute = attributes[0];
@@ -236,7 +244,7 @@ function createLegend(attributes){
                 svg += '<circle class="legend-circle" id="' + circles[i] + '" r="' + radius + '"cy="' + cy + '" fill="#0077be" fill-opacity="0.7" stroke="#005a9c" cx="65"/>';
             }; */
 
-            //add circle svg
+ /*           //add circle svg
             svg += '<circle cx="30" cy="50" r="15" fill="#0077be" stroke="#005a9c" stroke-width="1" fill-opacity="0.7"></circle>';
             //text next to circle svg
             svg += '<text x="60" y="55" font-size="12" alignment-baseline="middle">Water Station</text>';
@@ -316,5 +324,5 @@ function getData(map){
             calcStats(response);
         });
 };
-
+ */
 document.addEventListener('DOMContentLoaded', createMap);
