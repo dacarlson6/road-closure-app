@@ -59,23 +59,22 @@ function createMap(){
     getData(map);
 };
 
-document.addEventListener('DOMContentLoaded', createMap);
-
 document.addEventListener('DOMContentLoaded', function() {
+    createMap();
+
     var modal = document.getElementById("welcomeModal");
     var closeButton = document.getElementById("closeModal");
 
-    //ensure the modal is displayed upon loading
+    // Ensure the modal is displayed upon loading
     modal.style.display = "block";
 
-    closeButton.onclick = function() {
+    closeButton.addEventListener('click', function() {
         modal.style.display = "none";
-    };
+    });
 
-    // Close the modal if the user clicks outside of it
-    window.onclick = function(event) {
+    window.addEventListener('click', function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
         }
-    };
+    });
 });
