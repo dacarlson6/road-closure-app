@@ -13,7 +13,8 @@ function createMap(){
 
     //add geocoder
     var geocoder = L.Control.geocoder({
-        defaultMarkGeocode: false
+        defaultMarkGeocode: false,
+        collapsed: false
     }).on('markgeocode', function(e) {
         var bbox = e.geocode.bbox;
         var poly = L.polygon([
@@ -24,6 +25,9 @@ function createMap(){
         ]).addTo(map);
         map.fitBounds(poly.getBounds());
     }).addTo(map);
+
+    //automatically expand the geocoder search bar
+    geocoder.getContainer().querySelector('.leaflet-control-geocoder-icon').click();
 
     getData(map);
 };
