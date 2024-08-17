@@ -65,18 +65,18 @@ document.addEventListener('DOMContentLoaded', function() {
     var modal = document.getElementById("welcomeModal");
     var closeButton = document.getElementById("closeModal");
 
-    // Open the modal
+    //open the modal
     modal.style.display = "block";
 
-    // When the user clicks on (x), close the modal
-    closeButton.onclick = function() {
+    //close the modal when the 'Explore' button is clicked
+    closeButton.addEventListener('click', function() {
         modal.style.display = "none";
-    }
+    });
 
-    // If the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
+    //close the modal if the user clicks outside of it
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
             modal.style.display = "none";
         }
-    }
+    });
 });
