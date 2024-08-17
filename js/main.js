@@ -34,7 +34,7 @@ function createMap(){
         onAdd: function(map) {
             var button = L.DomUtil.create('button');
             button.innerHTML = 'Home'; //text on the button
-            //button.className = 'home-button';
+            button.className = 'home-button';
 
             L.DomEvent.on(button, 'click', function () {
                 map.setView([43.068, -89.407], 15); //coordinates and zoom level of Madison, WI
@@ -60,3 +60,23 @@ function createMap(){
 };
 
 document.addEventListener('DOMContentLoaded', createMap);
+
+document.addEventListener('DOMContentLoaded', function() {
+    var modal = document.getElementById("welcomeModal");
+    var closeButton = document.getElementById("closeModal");
+
+    // Open the modal
+    modal.style.display = "block";
+
+    // When the user clicks on (x), close the modal
+    closeButton.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // If the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+});
