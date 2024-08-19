@@ -68,14 +68,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Ensure the modal is displayed upon loading
     modal.style.display = "block";
 
-    closeButton.onclick = function() {
+    closeButton.addEventListener('click', function(event) {
         modal.style.display = "none";
-    };
+        event.stopPropagation(); 
+    });
 
-    // Close the modal if the user clicks directly on the modal background
-    modal.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
+    //close the modal if the user clicks outside of the modal content
+    modal.addEventListener('click', function(event) {
+    if (event.target === modal) {
+        modal.style.display = "none";
         }
-    };
+    });
 });
