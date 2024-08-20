@@ -21,7 +21,7 @@ const pool = new Pool({
 //API endpoint
 app.get('/roadclosures', async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM your_road_closure_table');
+    const result = await pool.query('SELECT * FROM road_closure_data');
     res.json(result.rows);
   } catch (err) {
     console.error('Error on executing query', err.stack);
