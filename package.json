@@ -11,12 +11,20 @@
     "start": "node server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Devin Carlson",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "pg": "^8.12.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dacarlson6/road-closure-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dacarlson6/road-closure-app/issues"
+  },
+  "homepage": "https://github.com/dacarlson6/road-closure-app#readme"
 }
