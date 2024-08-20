@@ -7,14 +7,16 @@ const app = express();
 //use CORS to handle cross-origin requests
 app.use(cors());
 
-//set up database connection
+require('dotenv').config();
 const pool = new Pool({
-  user: 'postgres',
-  host: 'roadclosure-db.citijmpomrxh.us-east-1.rds.amazonaws.com',
-  database: 'roadclosure-db',
-  password: 'Water2019!',
-  port: 5432
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT
 });
+//const port = process.env.PORT || 3000;
+
 
 //API endpoint
 app.get('/roadclosures', async (req, res) => {
