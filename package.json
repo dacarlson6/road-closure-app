@@ -1,0 +1,15 @@
+{
+  "name": "road-closure-app",
+  "version": "1.0.0",
+  "description": "Final project for Geog 575 &amp; 576; Public facing application to communicate road closures.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
