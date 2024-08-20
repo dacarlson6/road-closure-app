@@ -4,19 +4,19 @@ const cors = require('cors');
 
 const app = express();
 
-// Use CORS to handle cross-origin requests
+//use CORS to handle cross-origin requests
 app.use(cors());
 
-// Set up your database connection here
+//set up database connection
 const pool = new Pool({
-  user: 'your_user',
-  host: 'your_database_host',
-  database: 'your_database_name',
-  password: 'your_password',
+  user: 'postgres',
+  host: 'roadclosure-db.citijmpomrxh.us-east-1.rds.amazonaws.com',
+  database: 'roadclosure-db',
+  password: 'Water2019!',
   port: 5432
 });
 
-// Sample API endpoint
+//API endpoint
 app.get('/roadclosures', async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM your_road_closure_table');
@@ -27,7 +27,7 @@ app.get('/roadclosures', async (req, res) => {
   }
 });
 
-// Define the port to run the server on
+//define the port to run the server on
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
