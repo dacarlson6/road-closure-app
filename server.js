@@ -1,48 +1,34 @@
-require('dotenv').config();
+const express = require("express");
+const { Pool } = require("pg");
+const cors = require("cors");
 
-const express = require('express');
-const { Pool } = require('pg');
-const cors = require('cors');
-
-const app = express();
-
-//use CORS to handle cross-origin requests
-app.use(cors());
-
-console.log({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  password: process.env.DB_PASSWORD,
-  port: 5432
-});
-
+// Set up your PostgreSQL connection
 const pool = new Pool({
   user: process.env.DB_USER,
   host: process.env.DB_HOST,
-  database: 'roadclosures',
+  database: process.env.DB_NAME,
   password: process.env.DB_PASSWORD,
-  port: 5432
+  port: process.env.DB_PORT
 });
-//const port = process.env.PORT || 3000;
 
+const app = express();
+app.use(cors());
+require("dotenv").config();
 
-//API endpoint
+const PORT = process.env.PORT || 8000;
+
+// Endpoint to retrieve road closures
 app.get('/roadclosures', async (req, res) => {
   try {
-    const query = 'SELECT * FROM road_closure_data.closures'; // Ensure this is exactly correct
-    console.log('Executing query:', query); // Log the query being executed
-    const result = await pool.query(query);
-    console.log('Query success:', result.rows); // Log the results
+    const result = await pool.query('SELECT * FROM road_closure_data.closures');
     res.json(result.rows);
   } catch (err) {
-    console.error('Query error', err);
-    res.status(500).send('Internal Server Error: ' + err.message); // Provide more error details
+    console.error("Error on executing query", err.stack);
+    res.status(500).send('Internal Server Error');
   }
 });
 
-
-//define the port to run the server on
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Server listening at http://localhost:${port}`);
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
