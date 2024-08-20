@@ -10,9 +10,9 @@ var app = express();
 
 // Root Route
 app.get('/', function (req, res) {
-  console.log("in app.js.  The root route has been hit ...")
+  console.log("in app.js.  The root route has been hit ...testing text")
   res.status(200)
-  res.send('Hello Road Closure Planner - from my new Geog 576 node.js express app!');
+  res.send('Hello Road Closure Planner - from my new Geog 576 node.js express app! Testing testing testing');
 });
 
 // App listens on Port 8000 for requests
