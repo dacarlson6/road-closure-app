@@ -32,3 +32,8 @@ app.get('/roadclosures', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+// Define a route for the root URL
+app.get('/', (req, res) => {
+  res.send('Welcome to the Road Closure App API!');
+});
