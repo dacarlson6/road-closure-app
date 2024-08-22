@@ -1,6 +1,11 @@
+require("dotenv").config(); 
+
 const express = require("express");
 const { Pool } = require("pg");
 const cors = require("cors");
+
+const app = express();
+app.use(cors());
 
 // Set up your PostgreSQL connection
 const pool = new Pool({
@@ -10,10 +15,6 @@ const pool = new Pool({
   password: process.env.DB_PASSWORD,
   port: process.env.DB_PORT
 });
-
-const app = express();
-app.use(cors());
-require("dotenv").config();
 
 const PORT = process.env.PORT || 8000;
 
@@ -28,12 +29,14 @@ app.get('/roadclosures', async (req, res) => {
   }
 });
 
+// Define a route for the root URL
+app.get('/', (req, res) => {
+  res.send('Welcome to the Road Closure App API!');
+});
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
-// Define a route for the root URL
-app.get('/', (req, res) => {
-  res.send('Welcome to the Road Closure App API!');
-});
+
