@@ -15,7 +15,7 @@ function createMap() {
     }).addTo(map);
 
     //data fetching and GeoJSON integration
-    fetch('http://18.214.48.54:8000/roadclosures')
+    fetch('https://18.214.48.54:8000/roadclosures')
         .then(response => response.json())
         .then(data => {
             L.geoJSON(data, {
